@@ -84,6 +84,24 @@
     }, 2700);
   }
 
+  async function sendEmail(payload) {
+    try {
+      const res = await fetch('http://localhost:3001/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.previewUrl) {
+        console.log('📧 Email preview URL:', data.previewUrl);
+      }
+      return data;
+    } catch (e) {
+      console.warn('⚠️ sendEmail API error:', e);
+      return { error: e.message };
+    }
+  }
+
   if (!localStorage.getItem('cps_notifAsked')) {
     const handler = () => {
       localStorage.setItem('cps_notifAsked', 'true');
@@ -97,11 +115,13 @@
     push,
     toast,
     requestPermission,
+    sendEmail,
     showNotification: toast,
     pushNotify: push
   };
   global.pushNotify = push;
   global.showNotification = toast;
+  global.sendEmailNotification = sendEmail;
 
-  console.log('🔔 notifications.js loaded');
+  console.log('🔔 notifications.js loaded (Push + Email ready)');
 })(window);
