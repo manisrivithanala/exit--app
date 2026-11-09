@@ -30,6 +30,13 @@ render.experimental.xml
 
 # Google Services (e.g. APIs or Firebase)
 google-services.json
+serviceAccount.json
+
+# Node & Environment
+node_modules/
+.env
+.env.local
+npm-debug.log*
 
 # Android Profiling
 *.hprof
