@@ -164,7 +164,7 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=your-college-email@gmail.com
 SMTP_PASS=your-16-char-app-password
-EMAIL_FROM="College Permission & Gate System" <noreply@bvcits.edu.in>
+EMAIL_FROM="College Permission & Gate System" <noreply@gmail.com>
 
 # Frontend Base URL (used in email buttons linking to the permission slip)
 BASE_APP_URL=http://localhost:5500

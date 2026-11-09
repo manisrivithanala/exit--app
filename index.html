@@ -182,7 +182,7 @@
       </ul>
 
       <div class="domain-badge">
-        <i class="fas fa-lock"></i> Only @bvcits.edu.in domain allowed
+        <i class="fas fa-lock"></i> Only @gmail.com domain allowed
       </div>
     </div>
 
@@ -246,7 +246,7 @@
         <div class="form-panel" data-role="student" data-mode="register" id="student-register">
           <div class="form-header">
             <h3><i class="fas fa-user-plus"></i> Student Registration</h3>
-            <p>Fill your details. Only @bvcits.edu.in email allowed.</p>
+            <p>Fill your details. Only @gmail.com email allowed.</p>
           </div>
           <form onsubmit="handleRegister(event, 'student')">
             <div class="section-divider"><i class="fas fa-camera"></i> Profile Photo</div>
@@ -335,8 +335,8 @@
             <div class="form-row">
               <div class="form-group">
                 <label>College Email <span class="required">*</span></label>
-                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="reg-email" placeholder="24A91A0512@bvcits.edu.in" required></div>
-                <div class="domain-hint" id="reg-email-hint" style="font-size:0.66rem; color:#0f7db6; margin-top:4px;"><i class="fas fa-info-circle"></i> Must end with @bvcits.edu.in</div>
+                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="reg-email" placeholder="24A91A0512@gmail.com" required></div>
+                <div class="domain-hint" id="reg-email-hint" style="font-size:0.66rem; color:#0f7db6; margin-top:4px;"><i class="fas fa-info-circle"></i> Must end with @gmail.com</div>
               </div>
               <div class="form-group">
                 <label>Mobile Number <span class="required">*</span></label>
@@ -446,7 +446,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label>College Email <span class="required">*</span></label>
-                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="treg-email" placeholder="teacher@bvcits.edu.in" required></div>
+                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="treg-email" placeholder="teacher@gmail.com" required></div>
               </div>
               <div class="form-group">
                 <label>Mobile <span class="required">*</span></label>
@@ -534,7 +534,7 @@
 </div>
               <div class="form-group">
                 <label>College Email <span class="required">*</span></label>
-                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="hreg-email" placeholder="hod@bvcits.edu.in" required></div>
+                <div class="input-wrapper"><i class="fas fa-envelope prefix"></i><input type="email" id="hreg-email" placeholder="hod@gmail.com" required></div>
               </div>
             </div>
             <div class="form-row">
@@ -644,7 +644,7 @@
   // ================================================================
   // CONFIG
   // ================================================================
-  const ALLOWED_DOMAIN = '@bvcits.edu.in';
+  const ALLOWED_DOMAIN = '@gmail.com';
 
   const roleConfig = {
     student:  { storageKey: 'cps_students', dashboard: 'student/dashboard.html' },
@@ -756,7 +756,7 @@
         role: 'student'
       };
 
-      if (!validateDomain(userData.email)) { showAlert('Only @bvcits.edu.in email allowed.', 'error'); CPSNotify.toast('Only @bvcits.edu.in email allowed.', 'error'); return; }
+      if (!validateDomain(userData.email)) { showAlert('Only @gmail.com email allowed.', 'error'); CPSNotify.toast('Only @gmail.com email allowed.', 'error'); return; }
       if (userData.password !== userData.confirm) { showAlert('Passwords do not match.', 'error'); CPSNotify.toast('Passwords do not match.', 'error'); return; }
       if (!/^\d{10}$/.test(userData.mobile) || !/^\d{10}$/.test(userData.parentMobile)) { showAlert('Mobile must be 10 digits.', 'error'); CPSNotify.toast('Mobile must be 10 digits.', 'error'); return; }
       if (!regPhotoBase64) { showAlert('Please upload a profile photo.', 'error'); CPSNotify.toast('Please upload a profile photo.', 'error'); return; }
@@ -806,7 +806,7 @@
         confirm: document.getElementById('treg-confirmPassword').value,
         role: 'teacher'
       };
-      if (!validateDomain(userData.email)) { showAlert('Only @bvcits.edu.in email allowed.', 'error'); CPSNotify.toast('Only @bvcits.edu.in email allowed.', 'error'); return; }
+      if (!validateDomain(userData.email)) { showAlert('Only @gmail.com email allowed.', 'error'); CPSNotify.toast('Only @gmail.com email allowed.', 'error'); return; }
       if (userData.password !== userData.confirm) { showAlert('Passwords do not match.', 'error'); CPSNotify.toast('Passwords do not match.', 'error'); return; }
 
       const existing = JSON.parse(localStorage.getItem(cfg.storageKey) || '[]');
@@ -833,7 +833,7 @@
         confirm: document.getElementById('hreg-confirmPassword').value,
         role: 'hod'
       };
-      if (!validateDomain(userData.email)) { showAlert('Only @bvcits.edu.in email allowed.', 'error'); CPSNotify.toast('Only @bvcits.edu.in email allowed.', 'error'); return; }
+      if (!validateDomain(userData.email)) { showAlert('Only @gmail.com email allowed.', 'error'); CPSNotify.toast('Only @gmail.com email allowed.', 'error'); return; }
       if (userData.password !== userData.confirm) { showAlert('Passwords do not match.', 'error'); CPSNotify.toast('Passwords do not match.', 'error'); return; }
 
       const existing = JSON.parse(localStorage.getItem(cfg.storageKey) || '[]');
@@ -989,7 +989,7 @@ if (typeof window.CPS_registerVibeDevice === 'function') {
   }
 
   // ================================================================
-  // EMAIL DOMAIN HINT (live @bvcits.edu.in validation)
+  // EMAIL DOMAIN HINT (live @gmail.com validation)
   // ================================================================
   document.addEventListener('input', (e) => {
     if (e.target.type === 'email') {
@@ -1000,7 +1000,7 @@ if (typeof window.CPS_registerVibeDevice === 'function') {
           hint.innerHTML = '<i class="fas fa-times-circle" style="color:#dc2626;"></i> Invalid — must end with ' + ALLOWED_DOMAIN;
           hint.style.color = '#dc2626';
         } else if (val) {
-          hint.innerHTML = '<i class="fas fa-check-circle" style="color:#15803d;"></i> Valid college email';
+          hint.innerHTML = '<i class="fas fa-check-circle" style="color:#15803d;"></i> Valid @gmail.com email';
           hint.style.color = '#15803d';
         } else {
           hint.innerHTML = '<i class="fas fa-info-circle"></i> Must end with ' + ALLOWED_DOMAIN;
