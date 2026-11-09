@@ -429,7 +429,7 @@ app.post('/api/send-email', async (req, res) => {
 
   try {
     const transporter = await getEmailTransporter();
-    const fromAddress = process.env.EMAIL_FROM || '"College Exit Pass System" <noreply@bvcits.edu.in>';
+    const fromAddress = process.env.EMAIL_FROM || '"College Exit Pass System" <noreply@gmail.com>';
 
     let emailSubject = subject;
     let htmlContent = '';
